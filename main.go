@@ -1,10 +1,12 @@
 package main
 
 import (
-	"cli-tunes/api"
 	"fmt"
 	"os"
 	"os/signal"
+
+	"github.com/raymond-design/kpop-cli/connect"
+	"github.com/raymond-design/kpop-cli/internal"
 )
 
 const JPOP string = "https://listen.moe/fallback"
@@ -36,14 +38,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	api.Play(socket)
-	api.Play(stream)
+	connect.Play(socket)
+	internal.Play(stream)
 
 	interrupt := make(chan os.Signal, 1)
 	signal.Notify(interrupt, os.Interrupt)
 	<-interrupt
 
 	fmt.Println("Exiting Player")
-	api.Stop()
-	api.Stop()
+	internal.Stop()
+	connect.Stop()
 }

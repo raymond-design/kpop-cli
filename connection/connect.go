@@ -1,12 +1,12 @@
-package socket
+package connect
 
 import (
 	"encoding/json"
 	"log"
 	"time"
 
-	"cli-tunes/api"
-	"cli-tunes/types"
+	"github.com/raymond-design/kpop-cli/internal"
+	"github.com/raymond-design/kpop-cli/types"
 
 	"github.com/gorilla/websocket"
 )
@@ -46,7 +46,7 @@ func handleMessage(in []byte) {
 		if len(data.Song.Albums) > 0 {
 			album = data.Song.Albums[0].Name
 		}
-		api.WriteToScreen(data.Song.Title, data.Song.Artists[0].Name, album)
+		internal.WriteToScreen(data.Song.Title, data.Song.Artists[0].Name, album)
 	}
 }
 
