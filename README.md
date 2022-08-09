@@ -1,4 +1,4 @@
 cli tunes
 -------
-
-Using go 1.17, for macos as of now.
+Listen to kpop music in your command line...<br>
+(Using go 1.17)
