@@ -6,7 +6,7 @@ import (
 	"os/signal"
 
 	"github.com/raymond-design/kpop-cli/connect"
-	"github.com/raymond-design/kpop-cli/internal"
+	"github.com/raymond-design/kpop-cli/play"
 )
 
 const JPOP string = "https://listen.moe/fallback"
@@ -39,13 +39,13 @@ func main() {
 	}
 
 	connect.Play(socket)
-	internal.Play(stream)
+	play.Play(stream)
 
 	interrupt := make(chan os.Signal, 1)
 	signal.Notify(interrupt, os.Interrupt)
 	<-interrupt
 
 	fmt.Println("Exiting Player")
-	internal.Stop()
+	play.Stop()
 	connect.Stop()
 }

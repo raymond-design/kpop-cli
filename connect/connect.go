@@ -5,8 +5,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/raymond-design/kpop-cli/internal"
 	"github.com/raymond-design/kpop-cli/types"
+	"github.com/raymond-design/kpop-cli/ui"
 
 	"github.com/gorilla/websocket"
 )
@@ -46,7 +46,7 @@ func handleMessage(in []byte) {
 		if len(data.Song.Albums) > 0 {
 			album = data.Song.Albums[0].Name
 		}
-		internal.WriteToScreen(data.Song.Title, data.Song.Artists[0].Name, album)
+		ui.WriteToScreen(data.Song.Title, data.Song.Artists[0].Name, album)
 	}
 }
 
