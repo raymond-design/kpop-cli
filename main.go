@@ -38,7 +38,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	connect.Play(socket)
+	connect.Start(socket)
 	play.Play(stream)
 
 	interrupt := make(chan os.Signal, 1)
